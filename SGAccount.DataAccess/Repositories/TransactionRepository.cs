@@ -31,9 +31,6 @@ namespace SGAccount.DataAccess.Repositories
 
                 Delimiter = separator.ToString(),
                 Encoding = Encoding.Default,
-                //HeaderValidated = null,
-                //MissingFieldFound = null,
-                //PrepareHeaderForMatch = args => args.Header.ToLower()
             };
             TypeConverterOptions t = new TypeConverterOptions
             {

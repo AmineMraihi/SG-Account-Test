@@ -31,7 +31,7 @@ namespace SGAccount.Tests
             string filePath = config["FilePath"];
 
             // Act
-            bool fileExists = File.Exists(filePath);
+            bool fileExists = File.Exists(Path.Combine(Environment.CurrentDirectory, filePath));
 
             // Assert
             Assert.IsTrue(fileExists);
