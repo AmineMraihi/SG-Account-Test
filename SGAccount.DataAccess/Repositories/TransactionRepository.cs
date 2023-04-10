@@ -22,7 +22,7 @@ namespace SGAccount.DataAccess.Repositories
         {
             _config = config;
         }
-        public IList<Transaction> GetTransactionsData()
+        public virtual IList<Transaction> GetTransactionsData()
         {
             var records = new List<Transaction>();
             char separator = ';';
