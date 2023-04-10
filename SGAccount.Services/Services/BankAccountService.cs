@@ -20,17 +20,6 @@ namespace SGAccount.Services.Services
         public double GetAccountValueAtDate(DateTime date)
         {
             var bankAccount = _bankAccountRepository.GetBankAccountInfo();
-            //foreach (var transaction in bankAccount.Transactions)
-            //{
-            //    double ammount = transaction.Ammount;
-            //    if (transaction.Date >= date)
-            //    {
-            //        ammount *= bankAccount.CurrencyRates[transaction.Currency];
-
-            //        bankAccount.Montant -= ammount;
-            //    }
-            //}
-
             Parallel.ForEach(bankAccount.Transactions, transaction =>
             {
                 double ammount = transaction.Ammount;

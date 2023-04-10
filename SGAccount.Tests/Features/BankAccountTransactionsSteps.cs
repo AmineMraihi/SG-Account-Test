@@ -5,6 +5,7 @@ using SGAccount.Data.Models;
 using SGAccount.Data.Repositories;
 using SGAccount.DataAccess.Repositories;
 using SGAccount.Services.Services;
+using SGAcount.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,12 +18,16 @@ namespace SGAccount.Tests.Features
     public class BankAccountTransactionsSteps
     {
         Mock<ITransactionRepository> mockTransactionRepository;
-        Mock<IConfiguration> mockConfiguration;
+        IConfigurationRoot configuration;
 
         public BankAccountTransactionsSteps()
         {
             mockTransactionRepository = new Mock<ITransactionRepository>();
-            mockConfiguration = new Mock<IConfiguration>();
+            var builder = new ConfigurationBuilder()
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            configuration = builder.Build();
+
 
         }
         [Given(@"the following bank account information:")]
@@ -36,8 +41,6 @@ namespace SGAccount.Tests.Features
                 Category = Enum.Parse<Category>(row["Catégorie"])
             }).ToList();
 
-          
-
             ScenarioContext.Current.Set(transactions, "transactions");
         }
         
@@ -48,7 +51,8 @@ namespace SGAccount.Tests.Features
             mockTransactionRepository.Setup(x => x.GetTransactionsData())
                                    .Returns(transactions);
 
-            var bankAccountRepository = new BankAccountRepository(mockTransactionRepository.Object);
+            var bankAccountRepository = new BankAccountRepository(mockTransactionRepository.Object,
+                configuration);
             var bankAccountService = new BankAccountService(bankAccountRepository);
             var topSpentCategories = bankAccountService.GetMostSpentCategories();
 

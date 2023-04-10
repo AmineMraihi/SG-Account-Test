@@ -16,6 +16,6 @@ Scenario: Get top three spending categories
 	When I get the top three spending categories, certain categories
 	Then the result should be:
         | Catégorie    |
-        | Loisir      |
-        | Transport   |
-        | Santé       |
+        | Loisir       |
+        | Transport    |
+        | Santé        |

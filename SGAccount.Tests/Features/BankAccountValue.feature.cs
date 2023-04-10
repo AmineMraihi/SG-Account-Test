@@ -20,7 +20,7 @@ namespace SGAccount.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class BankAccountTransactionsFeature
+    public partial class BankAccountValueAtGivenDateFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -29,7 +29,7 @@ namespace SGAccount.Tests.Features
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "MostSpentCategories.feature"
+#line 1 "BankAccountValue.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -48,8 +48,8 @@ namespace SGAccount.Tests.Features
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Bank Account Transactions", "\tAs a user\r\n    I want to get the top three spending categories for my bank accou" +
-                    "nt, excluding certain categories\r\n    So that I can better manage my finances", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Bank Account Value at given date", "\tAs a user\r\n    I want to get my bank account value at a given date\r\n    So that " +
+                    "I can have a better idea how I spent my money", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,9 +64,9 @@ namespace SGAccount.Tests.Features
         public void TestInitialize()
         {
             if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "Bank Account Transactions")))
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "Bank Account Value at given date")))
             {
-                global::SGAccount.Tests.Features.BankAccountTransactionsFeature.FeatureSetup(null);
+                global::SGAccount.Tests.Features.BankAccountValueAtGivenDateFeature.FeatureSetup(null);
             }
         }
         
@@ -93,15 +93,15 @@ namespace SGAccount.Tests.Features
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get top three spending categories")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bank Account Transactions")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get my bank account value")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bank Account Value at given date")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
-        public void GetTopThreeSpendingCategories()
+        public void GetMyBankAccountValue()
         {
             string[] tagsOfScenario = new string[] {
                     "mytag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get top three spending categories", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get my bank account value", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -112,52 +112,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Date",
                             "Montant",
                             "Devise",
                             "Catégorie"});
-                table2.AddRow(new string[] {
-                            "06/10/2022",
+                table1.AddRow(new string[] {
+                            "20/02/2023",
                             "-504.61",
                             "EUR",
                             "Loisir"});
-                table2.AddRow(new string[] {
-                            "15/10/2022",
+                table1.AddRow(new string[] {
+                            "20/02/2023",
                             "-408.61",
-                            "JPY",
+                            "USD",
                             "Transport"});
-                table2.AddRow(new string[] {
+                table1.AddRow(new string[] {
                             "16/08/2022",
                             "-103.46",
-                            "USD",
-                            "Loisir"});
-                table2.AddRow(new string[] {
-                            "02/11/2022",
-                            "-271.49",
                             "JPY",
-                            "Santé"});
-                table2.AddRow(new string[] {
-                            "17/07/2022",
-                            "-44.17",
-                            "USD",
-                            "Alimentation"});
-#line 8
- testRunner.Given("the following bank account information:", ((string)(null)), table2, "Given ");
-#line hidden
-#line 16
- testRunner.When("I get the top three spending categories, certain categories", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Catégorie"});
-                table3.AddRow(new string[] {
                             "Loisir"});
-                table3.AddRow(new string[] {
-                            "Transport"});
-                table3.AddRow(new string[] {
-                            "Santé"});
-#line 17
- testRunner.Then("the result should be:", ((string)(null)), table3, "Then ");
+#line 8
+ testRunner.Given("the following bank account information:", ((string)(null)), table1, "Given ");
+#line hidden
+#line 14
+ testRunner.When("I check my bank account at a given date \'20/02/2023\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 15
+ testRunner.Then("I should have the result should be \'9395.05145\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

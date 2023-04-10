@@ -4,6 +4,7 @@ using CsvHelper.TypeConversion;
 using Microsoft.Extensions.Configuration;
 using SGAccount.Data.Models;
 using SGAccount.Data.Repositories;
+using SGAcount.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -17,14 +18,16 @@ namespace SGAccount.DataAccess.Repositories
     public class TransactionRepository : ITransactionRepository
     {
         private readonly IConfiguration _config;
+        private readonly AppSettings appSettings;
 
         public TransactionRepository(IConfiguration config)
         {
             _config = config;
+            appSettings =_config.Get<AppSettings>();
         }
         public virtual IList<Transaction> GetTransactionsData()
         {
-            var records = new List<Transaction>();
+            var transactions = new List<Transaction>();
             char separator = ';';
             var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture)
             {
@@ -37,7 +40,7 @@ namespace SGAccount.DataAccess.Repositories
                 Formats = new[] { "dd/MM/yyyy" },
                 DateTimeStyle = DateTimeStyles.None
             };
-            var filePath = _config["FilePath"];
+            var filePath = appSettings.FilePath;
             if (filePath == null) throw new Exception("File not found");
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, csvConfig, leaveOpen: false))
@@ -55,10 +58,10 @@ namespace SGAccount.DataAccess.Repositories
                     var montant = csv.GetField<double>("Montant");
                     var devise = csv.GetField<Currency>("Devise");
                     var categorie = csv.GetField<Category>("Catégorie");
-                    records.Add(new Transaction { Date = date, Ammount = montant, Currency = devise, Category = categorie });
+                    transactions.Add(new Transaction { Date = date, Ammount = montant, Currency = devise, Category = categorie });
                 }
             }
-            return records;
+            return transactions;
         }
     }
 }

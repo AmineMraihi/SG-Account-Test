@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGAccount.Tests", "SGAccoun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGAccount.ConsoleApp", "SGAccount.ConsoleApp\SGAccount.ConsoleApp.csproj", "{86BB0B66-2085-44B5-819B-277914916CDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGAccount.Abstraction", "SGAccount.Abstraction\SGAccount.Abstraction.csproj", "{AB273087-F0D9-4EFD-864A-1DC5D3D157DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGAccount.Abstraction", "SGAccount.Abstraction\SGAccount.Abstraction.csproj", "{AB273087-F0D9-4EFD-864A-1DC5D3D157DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGAcount.Common", "SGAcount.Common\SGAcount.Common.csproj", "{78AEBC17-2F2D-48A2-B998-205FEA533BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AB273087-F0D9-4EFD-864A-1DC5D3D157DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB273087-F0D9-4EFD-864A-1DC5D3D157DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB273087-F0D9-4EFD-864A-1DC5D3D157DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78AEBC17-2F2D-48A2-B998-205FEA533BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78AEBC17-2F2D-48A2-B998-205FEA533BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78AEBC17-2F2D-48A2-B998-205FEA533BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78AEBC17-2F2D-48A2-B998-205FEA533BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
