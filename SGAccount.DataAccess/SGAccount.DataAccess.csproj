@@ -13,4 +13,10 @@
     <ProjectReference Include="..\SGAccount.Domain\SGAccount.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\account.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
