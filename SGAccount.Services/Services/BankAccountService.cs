@@ -1,10 +1,8 @@
 ﻿using SGAccount.Abstraction;
 using SGAccount.Data.Repositories;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace SGAccount.Services.Services
@@ -17,6 +15,12 @@ namespace SGAccount.Services.Services
         {
             _bankAccountRepository = bankAccountRepository;
         }
+
+        /// <summary>
+        /// returns the value of account at given date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public double GetAccountValueAtDate(DateTime date)
         {
             var bankAccount = _bankAccountRepository.GetBankAccountInfo();
@@ -33,6 +37,7 @@ namespace SGAccount.Services.Services
             return bankAccount.Montant;
         }
 
+        //returns the most spent categories
         public IList<Category> GetMostSpentCategories()
         {
             var bankAccount = _bankAccountRepository.GetBankAccountInfo();

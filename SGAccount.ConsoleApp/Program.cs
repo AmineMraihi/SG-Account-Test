@@ -4,23 +4,14 @@ using SGAccount.Abstraction;
 using SGAccount.Data.Repositories;
 using SGAccount.DataAccess.Repositories;
 using SGAccount.Services.Services;
-using SGAcount.Common;
 using System;
 
 namespace SGAccount.ConsoleApp
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-            var builder = new ConfigurationBuilder()
-              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-
-            IConfigurationRoot configuration = builder.Build();
-            var appSettings = configuration.Get<AppSettings>();
-            // Read configuration values
-
             var serviceProvider = new ServiceCollection()
                                 .AddSingleton<IConfiguration>(new ConfigurationBuilder()
                     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
